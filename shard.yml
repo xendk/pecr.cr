@@ -1,0 +1,9 @@
+name: pecr
+version: 0.1.0
+
+authors:
+  - Thomas Fini Hansen <xen@xen.dk>
+
+crystal: 1.9.2
+
+license: MIT
