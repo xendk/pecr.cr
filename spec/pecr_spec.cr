@@ -13,7 +13,7 @@ describe PECR do
   it "renders partals" do
     one = "Hello"
     io = IO::Memory.new
-    ECR.embed_partial "spec/simple.ecr", "first", io
+    PECR.embed "spec/simple.ecr", "first", io
     io.to_s.should eq "Hello\n"
   end
 end
