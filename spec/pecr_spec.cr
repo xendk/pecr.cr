@@ -1,6 +1,12 @@
 require "./spec_helper"
 require "ecr"
 
+private class PECRSpecPartialView
+  @two = "Here"
+
+  PECR.def_to_s "spec/class.ecr#second"
+end
+
 describe PECR do
   it "full file embed works like ECR", focus: true do
     one = "Hello"
@@ -24,5 +30,10 @@ describe PECR do
   it "does .render" do
     one = "World"
     PECR.render("spec/simple.ecr#first").should eq "World\n"
+  end
+
+  it "does .def_to_s" do
+    view = PECRSpecPartialView.new
+    view.to_s.should eq "Here\n"
   end
 end

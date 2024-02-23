@@ -19,6 +19,20 @@ require "ecr"
 module PECR
   VERSION = "0.1.0"
 
+  # Defines a `to_s(io)` method whose body is the ECR contained
+  # in *filename*, translated to Crystal code.
+  #
+  # Works like `ECR#def_to_s`, but supports partial rendering. The
+  # desired partial is specified by appending "#" and the partial name
+  # to the filename.
+  #
+  # See `ECR#def_to_s` for rendering details.
+  macro def_to_s(filename)
+    def to_s(__io__ : IO) : Nil
+      PECR.embed {{filename}}, "__io__"
+    end
+  end
+
   # Embeds an ECR file *filename* into the program and appends the content to
   # an IO in the variable *io_name*.
   #
