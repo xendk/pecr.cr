@@ -12,10 +12,15 @@ require "ecr"
 # These should be lines of their own, as the partial is currently
 # defined as starting on the line following the start tag, and ending
 # on the line before the end tag. The dashes in "-%>" are optional,
-# but suppresses any newlines when rendering the full temlpate.
+# but suppresses any newlines when rendering the full template.
 #
 # Rendering a partial is done by appending a hash and the name of the
-# partial to the file name.
+# partial to the file name:
+#
+#
+# ```
+# PECR.render("file.ecr#partial")
+# ```
 module PECR
   VERSION = "0.1.0"
 
