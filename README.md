@@ -1,6 +1,26 @@
-# pecr
+# PECR
 
-TODO: Write a description here
+PECR is an extension of `ECR` templates that supports partial
+rendering.
+
+PECR should be a drop-in replacement of ECR (please file an issue if
+you discover this is not the case).
+
+* `<% #partial my-partial -%>`: Start of partial named "my-partial"
+* `<% #end -%>`: End of the current partial
+
+These should be lines of their own, as the partial is currently
+defined as starting on the line following the start tag, and ending on
+the line before the end tag. The dashes in "-%>" are optional, but
+suppresses any newlines when rendering the full template.
+
+Rendering a partial is done by appending a hash and the name of the
+partial to the file name:
+
+``` crystal
+PECR.render("file.ecr#partial")
+```
+
 
 ## Installation
 
@@ -18,13 +38,9 @@ TODO: Write a description here
 
 ```crystal
 require "pecr"
+
+PECR.render("file.ecr#partial")
 ```
-
-TODO: Write usage instructions here
-
-## Development
-
-TODO: Write development instructions here
 
 ## Contributing
 
