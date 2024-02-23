@@ -7,4 +7,10 @@ module PECR
   macro embed(filename, io_name)
     {{ run("./process_partial", filename, io_name.id.stringify) }}
   end
+
+  macro render(filename)
+    ::String.build do |%io|
+      ::PECR.embed({{filename}}, %io)
+    end
+  end
 end
