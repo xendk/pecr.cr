@@ -20,4 +20,9 @@ describe PECR do
     PECR.embed "spec/simple.ecr#first", io
     io.to_s.should eq "Hello\n"
   end
+
+  it "does .render" do
+    one = "World"
+    PECR.render("spec/simple.ecr#first").should eq "World\n"
+  end
 end
