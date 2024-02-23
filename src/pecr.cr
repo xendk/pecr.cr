@@ -4,7 +4,7 @@ require "ecr"
 module PECR
   VERSION = "0.1.0"
 
-  macro embed(filename, partial, io_name)
-    {{ run("./process_partial", filename, partial, io_name.id.stringify) }}
+  macro embed(filename, io_name)
+    {{ run("./process_partial", filename, io_name.id.stringify) }}
   end
 end
