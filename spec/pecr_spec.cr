@@ -24,16 +24,16 @@ describe PECR do
     one = "Hello"
     io = IO::Memory.new
     PECR.embed "spec/simple.ecr#first", io
-    io.to_s.should eq "Hello\n"
+    io.to_s.should eq "Hello" + EOL
   end
 
   it "does .render" do
     one = "World"
-    PECR.render("spec/simple.ecr#first").should eq "World\n"
+    PECR.render("spec/simple.ecr#first").should eq "World" + EOL
   end
 
   it "does .def_to_s" do
     view = PECRSpecPartialView.new
-    view.to_s.should eq "Here\n"
+    view.to_s.should eq "Here" + EOL
   end
 end
